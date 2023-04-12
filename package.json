@@ -1,0 +1,82 @@
+{
+  "name": "lets-do",
+  "version": "1.0.0",
+  "description": "Let's Do is a fun and intuitive ToDo application featuring our friendly owl mascot. Stay organized and on top of your tasks with ease. With Let's Do, you can easily manage your to-do list and track your progress. Get productive and have fun doing it with Let's Do!",
+  "main": "script.mjs",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve",
+    "dev": "webpack",
+    "prod": "webpack --node-env=production",
+    "watch": "webpack --node-env=development --watch",
+    "clear": "rd /s /q dist",
+    "lint": "eslint ./src/**/*.{mjs,js} --fix && prettier --write ./src/**/*.{mjs,js}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HobiHo180294/lets-do.git"
+  },
+  "keywords": [
+    "todo",
+    "task-management",
+    "productivity",
+    "organizer",
+    "reminder",
+    "checklist",
+    "planner",
+    "schedule",
+    "goal-tracking",
+    "time-management",
+    "efficiency",
+    "prioritization",
+    "collaboration",
+    "teamwork",
+    "mobile-app",
+    "web-app",
+    "desktop-app",
+    "owl-mascot",
+    "lets-do"
+  ],
+  "author": "Yehor Potebenko <hitechnic.uu68@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HobiHo180294/lets-do/issues"
+  },
+  "homepage": "https://github.com/HobiHo180294/lets-do#readme",
+  "devDependencies": {
+    "@babel/core": "^7.20.7",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/plugin-syntax-top-level-await": "^7.14.5",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
+    "css-minimizer-webpack-plugin": "^4.2.2",
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-webpack-plugin": "^3.2.0",
+    "group-css-media-queries-loader": "^4.3.0",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "image-webpack-loader": "^8.1.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "postcss": "^8.4.20",
+    "postcss-loader": "^7.0.2",
+    "postcss-preset-env": "^7.8.3",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.6",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "normalize.css": "^8.0.1"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "chrome": "58"
+        },
+        "useBuiltIns": "entry",
+        "corejs": 3
+      }
+    ]
+  ],
+  "plugins": ["@babel/plugin-syntax-top-level-await"],
+  "parserOpts": {
+    "plugins": ["topLevelAwait"]
+  }
+}

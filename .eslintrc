@@ -1,0 +1,43 @@
+{
+  "parser": "@babel/eslint-parser",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "requireConfigFile": false
+  },
+  "settings": {
+    "react": {
+      "version": "17.0.2"
+    }
+  },
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "parser": "babel",
+        "trailingComma": "es5",
+        "printWidth": 80
+      }
+    ],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": ["__filename", "__dirname"]
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+  }
+}

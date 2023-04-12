@@ -1,0 +1,11 @@
+@import '~normalize.css';
+@import '@scss-modules/global';
+@import '@scss-modules/global-templates';
+
+.wrapper {
+  @extend %wrapper;
+}
+
+.main {
+  @extend %attach-footer-to-bottom;
+}
