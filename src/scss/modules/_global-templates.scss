@@ -8,3 +8,10 @@
 %attach-footer-to-bottom {
   flex: 1 1 auto;
 }
+
+@mixin _container($max-width, $side-padding) {
+  box-sizing: content-box;
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: 0 $side-padding;
+}
