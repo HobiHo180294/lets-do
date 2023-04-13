@@ -27,6 +27,7 @@ function useWebpackPlugins() {
   const base = [
     new HtmlWebpackPlugin({
       template: './pages/login/index.html',
+      filename: 'index.html',
       minify: {
         collapseWhitespace: prodMode,
       },
@@ -34,7 +35,7 @@ function useWebpackPlugins() {
     }),
     new HtmlWebpackPlugin({
       template: './pages/main/index.html',
-      filename: 'login.html',
+      filename: 'main.html',
       minify: {
         collapseWhitespace: prodMode,
       },
