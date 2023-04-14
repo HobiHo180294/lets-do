@@ -1,6 +1,7 @@
 @import '~normalize.css';
 @import '@scss-modules/global';
 @import '@scss-modules/global-templates';
+@import '@scss-modules/global-palette';
 
 .wrapper {
   @extend %wrapper;
@@ -8,4 +9,244 @@
 
 .main {
   @extend %attach-footer-to-bottom;
+}
+
+.login {
+  &__container {
+    // max-width: 1440px;
+    margin: 0 auto;
+    padding: 10px;
+    color: $white;
+    font-size: 20px;
+  }
+
+  &__row {
+    display: flex;
+    height: 100vh;
+    flex-wrap: wrap;
+  }
+
+  &__logo-col {
+    flex: 0 1 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // margin: 0 auto;
+  }
+
+  &__form-col {
+    // width: 50%;
+    flex: 0 1 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    min-width: 516px;
+    height: 600px;
+    border-width: 3px;
+    border-radius: 20px;
+    padding: 30px 41px;
+    text-align: center;
+    --borderWidth: 7px;
+    // background: $white;
+    position: relative;
+    border-radius: 20px;
+
+    &:hover {
+      // box-shadow: 0 -2px -10px LightPink inset;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: calc(-1 * var(--borderWidth));
+      left: calc(-1 * var(--borderWidth));
+      height: calc(100% + var(--borderWidth) * 2);
+      width: calc(100% + var(--borderWidth) * 2);
+      background: linear-gradient(
+        60deg,
+        #f79533,
+        #f37055,
+        #c78bf8,
+        $purple,
+        #5073b8,
+        #1098ad,
+        #07b39b,
+        #6fba82
+      );
+      border-radius: 20px;
+      z-index: -1;
+      animation: animatedgradient 10s ease alternate infinite;
+      background-size: 300% 300%;
+    }
+  }
+
+  &__account {
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  &__account-join {
+  }
+}
+.logo-col {
+  &__title {
+    background: linear-gradient(266.66deg, $white 1.54%, hotpink 101.33%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-style: 36px;
+    font-weight: 700;
+  }
+
+  &__title-sp {
+    background: none;
+    font-style: italic;
+  }
+
+  &__logo {
+    position: relative;
+  }
+  &__pic {
+    width: 350px;
+    height: 350px;
+  }
+
+  &__anim {
+    position: absolute;
+    width: 600px;
+    height: 800px;
+    top: -250px;
+    left: -120px;
+    background: $purple;
+    border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+    animation: anim 30s infinite;
+    box-shadow: 0 -2vmin 4vmin LightPink inset, 0 1vmin 4vmin $light-blue inset,
+      0 -2vmin 3vmin rgb(206, 19, 206) inset;
+    filter: drop-shadow(0 0 5vmin rgba(255, 163, 255, 0.685));
+    z-index: -1;
+  }
+}
+.form {
+  &__title {
+    color: rgb(255, 222, 239);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  &__subtitle {
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 26px;
+  }
+
+  &__label {
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    border: 1px solid $light-blue;
+    border-radius: 10px;
+    height: 48px;
+    color: $dark-blue;
+    transition: all 0.3s ease-out;
+    // text-indent: 10px;
+    padding: 0 10px;
+
+    &:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px $light-blue;
+      border: none;
+    }
+  }
+
+  &__btn {
+    height: 48px;
+    border: none;
+    border-radius: 10px;
+    background: rgb(135, 181, 202);
+    color: $white;
+    margin-bottom: 28px;
+    transition: 0.5s;
+
+    &:hover {
+      box-shadow: 0 -2vmin 4vmin $light-blue inset, 0 3vmin 6vmin $purple inset;
+      cursor: pointer;
+    }
+  }
+
+  &__btn-text {
+  }
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 25%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 75%;
+  }
+}
+
+@keyframes anim {
+  0%,
+  100% {
+    border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+  }
+
+  10% {
+    border-radius: 50% 45% 20% 80% / 25% 80% 20% 75%;
+  }
+
+  20% {
+    border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
+  }
+
+  30% {
+    border-radius: 39% 61% 47% 53% / 37% 40% 60% 63%;
+  }
+
+  40% {
+    border-radius: 39% 61% 82% 18% / 74% 40% 60% 26%;
+  }
+
+  50% {
+    border-radius: 75%;
+  }
+
+  60% {
+    border-radius: 50% 50% 53% 47% / 72% 69% 31% 28%;
+  }
+
+  70% {
+    border-radius: 50% 58% 53% 47% / 26% 22% 78% 74%;
+  }
+
+  80% {
+    border-radius: 50% 65% 53% 47% / 26% 69% 31% 74%;
+  }
+
+  90% {
+    border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
+  }
 }
