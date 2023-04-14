@@ -61,6 +61,7 @@
                 alt="Close Modal"
                 width="20"
                 height="20"
+                class="todo-popup__close_icon popup__close_icon"
             /></a>
             <div class="todo-popup__wrapper">
               <h2 class="todo-popup__title">Let’s <i>Do</i></h2>
@@ -96,7 +97,7 @@
       </section>
 
       <!-- * PROFILE POPUP -->
-      <section id="profile-popup" class="todo-popup popup">
+      <section id="profile-popup" class="profile-popup popup">
         <div class="profile-popup__body popup__body">
           <div class="profile-popup__content popup__content">
             <a href="#header" class="profile-popup__close popup__close"
@@ -105,12 +106,13 @@
                 alt="Close Modal"
                 width="20"
                 height="20"
+                class="profile-popup__close_icon popup__close_icon"
             /></a>
             <div class="profile-popup__wrapper">
               <div class="profile-popup__top">
                 <img
                   class="profile-popup__avatar"
-                  src="../../assets/images/main/icons/avatar.svg"
+                  src="../../assets/images/main/icons/owl-avatar.svg"
                   alt="Avatar"
                   width="64"
                   height="64"
@@ -145,6 +147,23 @@
                     height="30"
                   />
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- * STOP ACTIVITY POPUP -->
+      <section id="stop-popup" class="stop-popup popup">
+        <div class="stop-popup__body popup__body">
+          <div class="stop-popup__content popup__content">
+            <div class="stop-popup__wrapper">
+              <h2 class="stop-popup__title">Let’s <i>Do</i></h2>
+              <p class="stop-popup__question">Are you sure you want to stop activity?</p>
+
+              <div class="stop-popup__buttons">
+                <a href="#header" type="submit" class="stop-popup__buttons_ok popup__close">OK</a>
+                <a href="#header" type="reset" class="stop-popup__buttons_no popup__close">NO</a>
               </div>
             </div>
           </div>

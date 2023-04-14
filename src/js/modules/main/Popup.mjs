@@ -51,7 +51,8 @@ export default class Popup {
   static closeOnEscape(event) {
     if (event.key === 'Escape') {
       const popupsActive = document.querySelectorAll('.popup.open');
-      this.close(popupsActive[popupsActive.length - 1]);
+
+      if (popupsActive.length > 0) this.close(popupsActive[popupsActive.length - 1]);
     }
   }
 
