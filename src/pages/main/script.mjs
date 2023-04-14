@@ -4,9 +4,15 @@ import Popup from '../../js/modules/main/Popup.mjs';
 
 const popupLinks = document.querySelectorAll('.popup-link');
 const popupCloseIcon = document.querySelectorAll('.popup__close');
+const todoPopupLink = document.querySelector('.todo-popup__link');
 
 document.addEventListener('keydown', (e) => {
   Popup.closeOnEscape(e);
+});
+
+todoPopupLink.previousElementSibling.addEventListener('click', (e) => {
+  e.preventDefault();
+  todoPopupLink.click();
 });
 
 if (popupLinks.length > 0)

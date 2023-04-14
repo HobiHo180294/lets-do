@@ -23,7 +23,7 @@
                 </a>
               </li>
               <li class="menu__item">
-                <a href="#" class="menu__link popup-link">
+                <a href="#profile-popup" class="menu__link popup-link">
                   <img
                     class="menu__item_img"
                     src="../../assets/images/main/icons/profile.svg"
@@ -52,7 +52,7 @@
       </main>
 
       <!-- * TODO POPUP -->
-      <div id="todo-popup" class="todo-popup popup">
+      <section id="todo-popup" class="todo-popup popup">
         <div class="todo-popup__body popup__body">
           <div class="todo-popup__content popup__content">
             <a href="#header" class="todo-popup__close popup__close"
@@ -67,15 +67,19 @@
               <p class="todo-popup__question">What’s your plan?</p>
 
               <ul class="todo-popup__list">
-                <li class="todo-popup__item">Add task</li>
+                <li class="todo-popup__item">
+                  <span class="todo-popup__link-before">+</span>
+                  <a class="todo-popup__link popup-link" href="#task-popup">Add task</a>
+                </li>
               </ul>
               <a href="#task-popup" class="todo-popup__button popup-link">Add task</a>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div id="task-popup" class="task-popup popup">
+      <!-- * TASK POPUP -->
+      <section id="task-popup" class="task-popup popup">
         <form action="#header" class="task-popup__body popup__body">
           <fieldset class="task-popup__content popup__content">
             <h2 class="task-popup__title">My task</h2>
@@ -89,7 +93,63 @@
             </div>
           </fieldset>
         </form>
-      </div>
+      </section>
+
+      <!-- * PROFILE POPUP -->
+      <section id="profile-popup" class="todo-popup popup">
+        <div class="profile-popup__body popup__body">
+          <div class="profile-popup__content popup__content">
+            <a href="#header" class="profile-popup__close popup__close"
+              ><img
+                src="../../assets/images/main/icons/close.svg"
+                alt="Close Modal"
+                width="20"
+                height="20"
+            /></a>
+            <div class="profile-popup__wrapper">
+              <div class="profile-popup__top">
+                <img
+                  class="profile-popup__avatar"
+                  src="../../assets/images/main/icons/avatar.svg"
+                  alt="Avatar"
+                  width="64"
+                  height="64"
+                />
+                <h3 class="profile-popup__greetings">Hello, Yehor!</h3>
+              </div>
+              <ul class="profile-popup__list profile-list">
+                <li class="profile-list__item">
+                  <mark class="profile-list__item_title">Name:</mark>
+                  <span class="profile-list__item_value">Yehor</span>
+                </li>
+                <li class="profile-list__item profile-list__mail">
+                  <mark class="profile-list__item_title">Email:</mark>
+                  <span class="profile-list__item_value"
+                    ><a href="mailto:bulka@cute.one" class="profile-list__mail_link"
+                      >bulka@cute.one</a
+                    ></span
+                  >
+                </li>
+                <li class="profile-list__item profile-list__completed">
+                  <mark class="profile-list__item_title">Completed tasks:</mark>
+                  <span class="profile-list__item_value">15</span>
+                </li>
+              </ul>
+              <div class="profile-popup__bottom">
+                <a href="#header" class="profile-popup__bottom_logout logout popup__close">
+                  <img
+                    class="logout__image"
+                    src="../../assets/images/main/icons/logout.svg"
+                    alt="Logout"
+                    width="24"
+                    height="30"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </body>
 </html>

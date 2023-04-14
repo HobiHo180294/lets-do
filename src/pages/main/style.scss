@@ -170,20 +170,19 @@ body {
     text-transform: uppercase;
     color: $heliotrope1;
     cursor: pointer;
+  }
 
-    &::before {
-      content: '+';
-      font-family: 'Inder', sans-serif;
-      font-weight: 400;
-      font-size: 28px;
-      line-height: 35px;
-      text-transform: uppercase;
-      background: linear-gradient(85.64deg, $anakiwa 2.83%, $heliotrope1 76.72%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      margin-right: 4px;
-    }
+  &__link-before {
+    font-family: 'Inder', sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 35px;
+    text-transform: uppercase;
+    background: linear-gradient(85.64deg, $anakiwa 2.83%, $heliotrope1 76.72%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-right: 4px;
   }
 
   &__button {
@@ -285,6 +284,87 @@ body {
       color: $matisse;
       text-transform: uppercase;
       cursor: pointer;
+    }
+  }
+}
+
+.profile-popup {
+  &__content {
+    padding: 25px;
+    width: 35.69%;
+    background-color: $white;
+    border-radius: 20px;
+  }
+
+  &__wrapper {
+    text-align: left;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+
+    > * {
+      &:first-child {
+        margin-right: 15px;
+      }
+    }
+
+    margin-bottom: 25px;
+  }
+
+  &__greetings {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: $medium-purple;
+  }
+}
+
+.logout {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 30px;
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.profile-list {
+  margin-top: 0;
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 11px;
+
+  &__item {
+    font-size: 16px;
+    line-height: 19px;
+    color: $medium-purple;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    &_title {
+      background: none;
+      color: inherit;
+      display: inline-block;
+      margin-right: 2px;
+      font-weight: 700;
+    }
+
+    &_value {
+      font-weight: 400;
     }
   }
 }
