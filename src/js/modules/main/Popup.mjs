@@ -50,17 +50,14 @@ export default class Popup {
 
   static closeOnEscape(event) {
     if (event.key === 'Escape') {
-      const popupActive = document.querySelector('.popup.open');
-      this.close(popupActive);
+      const popupsActive = document.querySelectorAll('.popup.open');
+      this.close(popupsActive[popupsActive.length - 1]);
     }
   }
 
   static open(currentPopup) {
     if (currentPopup && unlock) {
-      const popupActive = document.querySelector('.popup.open');
-
-      if (popupActive) this.close(popupActive, false);
-      else bodyLock();
+      bodyLock();
 
       currentPopup.classList.add('open');
       currentPopup.addEventListener('click', (e) => {

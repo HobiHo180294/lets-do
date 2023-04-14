@@ -69,10 +69,26 @@
               <ul class="todo-popup__list">
                 <li class="todo-popup__item">Add task</li>
               </ul>
-              <button class="todo-popup__button">Add task</button>
+              <a href="#task-popup" class="todo-popup__button popup-link">Add task</a>
             </div>
           </div>
         </div>
+      </div>
+
+      <div id="task-popup" class="task-popup popup">
+        <form action="#header" class="task-popup__body popup__body">
+          <fieldset class="task-popup__content popup__content">
+            <h2 class="task-popup__title">My task</h2>
+            <textarea
+              class="task-popup__field"
+              placeholder="What is your main focus for today?"
+            ></textarea>
+            <div class="task-popup__buttons">
+              <button type="submit" class="task-popup__buttons_ok popup__close">OK</button>
+              <button type="reset" class="task-popup__buttons_no popup__close">NO</button>
+            </div>
+          </fieldset>
+        </form>
       </div>
     </div>
   </body>

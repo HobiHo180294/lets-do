@@ -99,7 +99,7 @@ body {
     transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
 
     > * {
-      &:first-child {
+      &.popup__close {
         display: inline-block;
       }
     }
@@ -197,6 +197,94 @@ body {
     line-height: 22px;
     text-transform: uppercase;
     color: $alice-blue;
-    cursor: pointer;
+  }
+}
+
+.task-popup {
+  &__content {
+    margin-left: 0;
+    margin-right: 0;
+    border: none;
+    width: 22.78%;
+    border-radius: 20px;
+    background-color: $medium-purple;
+    padding: 16px 18px 12px;
+
+    text-align: left;
+
+    > * {
+      &:first-child,
+      &:last-child {
+        text-align: center;
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__field {
+    border: none;
+    padding: 6px 11px;
+    display: block;
+    width: 100%;
+    min-height: 67px;
+    border-radius: 10px;
+    background-color: $white;
+    margin-bottom: 11px;
+    resize: none;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: $matisse;
+    overflow: auto;
+    scrollbar-width: none;
+
+    &:focus {
+      outline: none;
+
+      &::placeholder {
+        visibility: hidden;
+      }
+    }
+
+    &::placeholder {
+      color: $matisse;
+      font-size: 16px;
+      line-height: 19px;
+      color: $matisse;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 187px;
+
+    > * {
+      border: none;
+      padding: 10px 30px 5px 26px;
+      background-color: $alice-blue;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: $matisse;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
   }
 }
