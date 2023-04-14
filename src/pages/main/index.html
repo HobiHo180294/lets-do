@@ -9,12 +9,12 @@
   <body>
     <div class="wrapper">
       <!-- * HEADER -->
-      <header class="header">
+      <header class="header lock-padding">
         <div class="header__container _container">
           <nav class="header__body">
             <ul class="header__menu menu">
               <li class="menu__item">
-                <a href="#">
+                <a href="#todo-popup" class="menu__link popup-link">
                   <img
                     class="menu__item_img"
                     src="../../assets/images/main/icons/tasks.svg"
@@ -23,7 +23,7 @@
                 </a>
               </li>
               <li class="menu__item">
-                <a href="#">
+                <a href="#" class="menu__link popup-link">
                   <img
                     class="menu__item_img"
                     src="../../assets/images/main/icons/profile.svg"
@@ -52,10 +52,10 @@
       </main>
 
       <!-- * TODO POPUP -->
-      <div class="todo-popup popup">
+      <div id="todo-popup" class="todo-popup popup">
         <div class="todo-popup__body popup__body">
           <div class="todo-popup__content popup__content">
-            <a href="#" class="todo-popup__close popup__close"
+            <a href="#header" class="todo-popup__close popup__close"
               ><img
                 src="../../assets/images/main/icons/close.svg"
                 alt="Close Modal"
