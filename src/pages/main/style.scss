@@ -2,6 +2,7 @@
 @import '@scss-modules/global';
 @import '@scss-modules/global-templates';
 @import '@scss-modules/main/palette';
+@import '@scss-modules/main/templates';
 
 .wrapper {
   @extend %wrapper;
@@ -13,29 +14,20 @@
 
 body {
   &.lock {
-    overflow: hidden;
+    @extend %body-lock;
   }
 }
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  @include fixed-header(998);
   padding-top: 35px;
-  z-index: 998;
 
   &__menu {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
+    @include null-ul();
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    > * {
-      list-style-type: none;
-    }
   }
 }
 
@@ -74,53 +66,12 @@ body {
 }
 
 .popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: $transparent-dark-red;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.8s ease 0s;
-  z-index: 999;
-
-  &__body {
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 10px;
-  }
-
-  &__content {
-    text-align: right;
-    transition: all 0.8s ease 0s;
-    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
-
-    > * {
-      &.popup__close {
-        display: inline-block;
-      }
-    }
-  }
-
-  &.open {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  &.open &__content {
-    transform: perspective(600px) translate(0px, 0%) rotateX(0deg);
-  }
+  @extend .popup;
 }
 
 .todo-popup {
   &__content {
-    width: 42.9%;
-    padding: 25px 25px 30px 25px;
-    background-color: $alice-blue;
-    border-radius: 20px;
+    @include popup-base-content(42.9%, 25px 25px 30px 25px, $alice-blue, 20px);
   }
 
   &__wrapper {
@@ -133,31 +84,18 @@ body {
     max-width: 32.2%;
     margin: 0 auto 17px;
     text-align: center;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 43px;
-    background: linear-gradient(266.66deg, $heliotrope 1.54%, $matisse 101.33%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    @include lets-do-title(36px, 43px);
   }
 
   &__question {
     margin-top: 0;
     margin-bottom: 20px;
     text-align: left;
-    font-family: 'Inder', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 25px;
-    color: $scampi;
+    @include popup-question-template(20px, 25px, $scampi, (Inder, sans-serif));
   }
 
   &__list {
-    margin-top: 0;
-    padding-left: 0;
-    list-style-type: none;
-    margin-bottom: 318px;
+    @include null-ul(318px);
     display: inline-block;
     margin-right: auto;
   }
@@ -201,14 +139,8 @@ body {
 
 .task-popup {
   &__content {
-    margin-left: 0;
-    margin-right: 0;
-    border: none;
-    width: 22.78%;
-    border-radius: 20px;
-    background-color: $medium-purple;
-    padding: 16px 18px 12px;
-
+    @extend %null-fieldset;
+    @include popup-base-content(22.78%, 16px 18px 12px, $medium-purple, 20px);
     text-align: left;
 
     > * {
@@ -290,10 +222,7 @@ body {
 
 .profile-popup {
   &__content {
-    padding: 25px;
-    width: 35.69%;
-    background-color: $white;
-    border-radius: 20px;
+    @include popup-base-content(35.69%, 25px, $white, 20px);
   }
 
   &__wrapper {
@@ -339,12 +268,10 @@ body {
 }
 
 .profile-list {
-  margin-top: 0;
-  padding-left: 0;
-  list-style-type: none;
+  @include null-ul(11px);
+
   display: flex;
   flex-direction: column;
-  margin-bottom: 11px;
 
   &__item {
     font-size: 16px;
@@ -371,10 +298,7 @@ body {
 
 .stop-popup {
   &__content {
-    padding: 15px 26px 20px 21px;
-    width: 22.78%;
-    background-color: $alice-blue;
-    border-radius: 20px;
+    @include popup-base-content(22.78%, 15px 26px 20px 21px, $alice-blue, 20px);
     text-align: center;
   }
 
@@ -394,20 +318,11 @@ body {
     max-width: 108px;
     margin: 0 auto;
     text-align: center;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 36px;
-    background: linear-gradient(266.66deg, $heliotrope 1.54%, $matisse 101.33%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    @include lets-do-title(30px, 36px);
   }
 
   &__question {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    color: $matisse;
+    @include popup-question-template(16px, 19px, $matisse);
   }
 
   &__buttons {
