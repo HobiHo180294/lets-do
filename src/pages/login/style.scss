@@ -1,7 +1,7 @@
 @import '~normalize.css';
 @import '@scss-modules/global';
 @import '@scss-modules/global-templates';
-@import '@scss-modules/global-palette';
+@import '@scss-modules/login/palette';
 
 .wrapper {
   @extend %wrapper;
