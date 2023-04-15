@@ -1,3 +1,5 @@
+import renderRegistrationForm from './_UI.mjs';
+
 const requestEndpoints = {
   root: '/',
   login: '/login',
@@ -13,11 +15,12 @@ export default class Router {
     switch (curentPathname) {
       case requestEndpoints.root:
       case requestEndpoints.registration:
-        console.log('This is welcome or registration page!');
+        renderRegistrationForm();
         break;
 
       case requestEndpoints.login:
         console.log('This is login page!');
+
         break;
 
       default:
