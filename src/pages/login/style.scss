@@ -85,17 +85,18 @@
     font-weight: 300;
     font-size: 16px;
   }
-
-  &__account-join {
-  }
 }
 .logo-col {
   &__title {
-    background: linear-gradient(266.66deg, $pinkish-purple 1.54%, $nebula-purple 101.33%);
+    background: linear-gradient(
+      266.66deg,
+      $pinkish-purple 1.54%,
+      $nebula-purple 101.33%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
+    color: transparent;
     font-style: 36px;
     font-weight: 700;
   }
@@ -175,7 +176,7 @@
     border-radius: 10px;
     background: #f9f2ff;
     color: $pinkish-purple;
-    margin-bottom: 28px;
+    margin-bottom: 58px;
     transition: 0.5s;
 
     &:hover {
