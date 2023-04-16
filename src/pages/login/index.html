@@ -57,23 +57,37 @@
             <!-- Logo column end -->
             <!-- Form column start -->
             <div class="login__form-col">
-              <form action="#" class="login__form">
+              <form action="#" class="login__form" novalidate>
                 <div class="form__title">Login</div>
                 <div class="form__subtitle">Welcome back.</div>
 
-                <div class="form__item">
-                  <label for="#" class="form__label"> Username: </label>
-                  <input type="text" class="form__input" />
-                  <div class="error"></div>
+                <div class="form__items">
+                  <div class="form__item">
+                    <label for="#" class="form__label"> Username: </label>
+                    <input
+                      type="text"
+                      class="form__input username-input"
+                      minlength="4"
+                      maxlength="10"
+                      required
+                    />
+                    <div class="error"></div>
+                  </div>
+
+                  <div class="form__item">
+                    <label for="#" class="form__label"> Password: </label>
+                    <input
+                      type="password"
+                      class="form__input password-input"
+                      minlength="4"
+                      maxlength="8"
+                      required
+                    />
+                    <div class="error"></div>
+                  </div>
                 </div>
 
-                <div class="form__item">
-                  <label for="#" class="form__label"> Password: </label>
-                  <input type="password" class="form__input" />
-                  <div class="error"></div>
-                </div>
-
-                <button class="form__btn">Login</button>
+                <button type="submit" class="form__btn">Login</button>
 
                 <div class="login__account">
                   Don’t have an account?

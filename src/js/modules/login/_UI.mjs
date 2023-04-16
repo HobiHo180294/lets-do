@@ -3,7 +3,7 @@ const REGISTER_TEXT_CONTENT = 'Register';
 const renderMailFormItem = () => `
   <div class="form__item">
     <label for="#" class="form__label"> E-Mail: </label>
-    <input type="email" class="form__input" />
+    <input type="email" class="form__input email-input" required />
     <div class="error"></div>
   </div>
 `;

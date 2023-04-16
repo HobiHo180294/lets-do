@@ -37,7 +37,6 @@
 
   &__form-col {
     flex: 0 1 50%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +47,6 @@
     display: flex;
     flex-direction: column;
     min-width: 516px;
-    height: 600px;
     border-width: 3px;
     border-radius: 20px;
     padding: 30px 41px;
@@ -111,16 +109,22 @@
     position: relative;
   }
   &__pic {
-    width: 350px;
-    height: 350px;
+    // width: 350px;
+    // height: 350px;
+    width: 100%;
+    height: 75%;
   }
 
   &__anim {
     position: absolute;
-    width: 600px;
-    height: 800px;
-    top: -250px;
-    left: -120px;
+    // width: 600px;
+    // height: 800px;
+    // top: -250px;
+    // left: -120px;
+    width: 152%;
+    height: 87vh;
+    top: -26%;
+    left: -25%;
     background: $easter-purple;
     border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
     animation: anim 27s infinite;
@@ -144,11 +148,20 @@
     margin-bottom: 40px;
   }
 
+  &__items {
+    > * {
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+    }
+
+    margin-bottom: 50px;
+  }
+
   &__item {
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin-bottom: 26px;
   }
 
   &__label {
@@ -177,7 +190,7 @@
     border-radius: 10px;
     background: #f9f2ff;
     color: $pinkish-purple;
-    margin-bottom: 58px;
+    margin-bottom: 25px;
     transition: 0.5s;
 
     &:hover {
