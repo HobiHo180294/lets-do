@@ -87,7 +87,11 @@
 }
 .logo-col {
   &__title {
-    background: linear-gradient(266.66deg, $pinkish-purple 1.54%, $nebula-purple 101.33%);
+    background: linear-gradient(
+      266.66deg,
+      $pinkish-purple 1.54%,
+      $nebula-purple 101.33%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -108,8 +112,8 @@
 
   &__anim {
     position: absolute;
-    width: 78%;
-    height: 80%;
+    width: 85%;
+    height: 85%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -55%);
@@ -207,11 +211,11 @@
 @keyframes anim {
   0%,
   100% {
-    border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+    border-radius: 30% 60% 60% 30% / 30% 52% 48% 70%;
   }
 
   10% {
-    border-radius: 50% 45% 20% 80% / 25% 80% 20% 75%;
+    border-radius: 50% 45% 20% 60% / 25% 80% 20% 75%;
   }
 
   20% {
@@ -223,7 +227,7 @@
   }
 
   40% {
-    border-radius: 39% 61% 82% 18% / 74% 40% 60% 26%;
+    border-radius: 39% 61% 82% 18% / 74% 40% 60% 46%;
   }
 
   50% {
@@ -243,6 +247,6 @@
   }
 
   90% {
-    border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
+    border-radius: 20% 70% 20% 65% / 20% 63% 20% 68%;
   }
 }
