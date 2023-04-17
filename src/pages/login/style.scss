@@ -173,6 +173,14 @@
       outline: none;
       box-shadow: 0 0 10px $light-blue;
       border: none;
+
+      &::placeholder {
+        visibility: hidden;
+      }
+    }
+
+    &::placeholder {
+      color: $purple-heart;
     }
   }
 
@@ -193,6 +201,14 @@
     &._register-mb {
       @extend %_register-mb;
     }
+  }
+}
+
+.validation-error {
+  @extend %validation-error;
+
+  &._empty-error {
+    @extend %_empty-error;
   }
 }
 

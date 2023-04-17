@@ -1,3 +1,13 @@
 %_register-mb {
   margin-bottom: 28px;
 }
+
+%_empty-error {
+  color: $laser-lemon;
+  margin-bottom: 10px;
+}
+
+%validation-error {
+  color: $laser-lemon;
+  margin-top: 10px;
+}

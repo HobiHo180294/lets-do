@@ -71,7 +71,7 @@
                       maxlength="10"
                       required
                     />
-                    <div class="error"></div>
+                    <div class="validation-error _username-error"></div>
                   </div>
 
                   <div class="form__item">
@@ -83,11 +83,13 @@
                       maxlength="8"
                       required
                     />
-                    <div class="error"></div>
+                    <div class="validation-error _password-error"></div>
                   </div>
                 </div>
 
                 <button type="submit" class="form__btn">Login</button>
+
+                <div class="validation-error _empty-error"></div>
 
                 <div class="login__account">
                   Don’t have an account?
