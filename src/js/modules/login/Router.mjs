@@ -1,12 +1,5 @@
 import renderRegistrationForm from './_UI.mjs';
-
-const requestEndpoints = {
-  root: '/',
-  login: '/login',
-  registration: '/registration',
-};
-
-const DEFAULT_PATHNAME = requestEndpoints.login;
+import { requestEndpoints, DEFAULT_PATHNAME } from './services/endpoints.mjs';
 
 export default class Router {
   static renderContent() {

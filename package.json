@@ -10,7 +10,7 @@
     "prod": "webpack --node-env=production",
     "watch": "webpack --node-env=development --watch",
     "clear": "rd /s /q dist",
-    "lint": "eslint ./src/**/*.{mjs,js} --fix && prettier --write ./src/**/*.{mjs,js}"
+    "lint": "eslint ./{src,server}/**/*.{mjs,js} --fix && prettier --write ./{src,server}/**/*.{mjs,js}"
   },
   "repository": {
     "type": "git",
