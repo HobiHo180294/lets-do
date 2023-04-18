@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import authRoute from './routes/auth.js';
+import todoRoute from './routes/todos.js';
 
 const app = express();
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // * Routes
 app.use('/api/auth', authRoute);
+app.use('/api/todos', todoRoute);
 
 async function start() {
   try {
@@ -28,8 +30,10 @@ async function start() {
     app.listen(PORT, () => {
       console.log(`Server started on port: ${PORT}`);
     });
+
+    return null;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 }
 

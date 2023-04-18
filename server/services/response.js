@@ -1,10 +1,12 @@
 const responseStatus = {
   httpSuccess: 200,
+  httpNoContent: 204,
   httpBadRequest: 400,
   httpUnauthorized: 401,
   httpNoAccess: 403,
   httpNotFound: 404,
   httpConflict: 409,
+  httpServerError: 500,
 };
 
 const responseMessage = {
@@ -34,6 +36,20 @@ const responseMessage = {
   user: {
     notFound: 'Failed to find such user',
     isFound: 'User is successfully found',
+  },
+
+  todos: {
+    isCreated: 'Todo is created',
+    fail: 'Failed to create Todo',
+    noContent: 'Currently there are no Todos in database',
+    returned: 'All Todos are successfully returned',
+    getFail: 'Failed to find appropriate Todos',
+    deleted: 'Todo is successfully removed',
+  },
+
+  server: {
+    internalError:
+      'Sorry, we encountered an unexpected error. Please try again later.',
   },
 };
 
