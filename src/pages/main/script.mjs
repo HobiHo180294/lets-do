@@ -64,9 +64,17 @@ okButton.addEventListener('click', () => {
   const newTask = createElement('li', 'todo-popup__item');
 
   // eslint-disable-next-line prettier/prettier
-  const picTaskDone = createElement('img', 'todo-popup__pic todo-popup__pic-done', 'Mark as done');
+  const picTaskDone = createElement(
+    'img',
+    'todo-popup__pic todo-popup__pic-done',
+    'Mark as done'
+  );
   // eslint-disable-next-line prettier/prettier
-  const picTaskDelete = createElement('img', 'todo-popup__pic todo-popup__pic-delete', 'Delete');
+  const picTaskDelete = createElement(
+    'img',
+    'todo-popup__pic todo-popup__pic-delete',
+    'Delete'
+  );
 
   picTaskDone.src = doneIcon;
   picTaskDelete.src = deleteIcon;
@@ -94,3 +102,15 @@ okButton.addEventListener('click', () => {
 
   taskText.value = '';
 });
+
+// * TEST TOKEN
+// import { getUserInfo } from '../../js/modules/login/_requests.mjs';
+
+// async function findUser() {
+//   const token = window.sessionStorage.getItem('token');
+//   return token ? getUserInfo(token) : null;
+// }
+
+// const userData = await findUser();
+// console.log('user:', userData);
+// * TEST TOKEN

@@ -18,7 +18,8 @@ function optimization() {
     runtimeChunk: 'single',
   };
 
-  if (prodMode) config.minimizer = [new CssMinimizerPlugin(), new TerserPlugin()];
+  if (prodMode)
+    config.minimizer = [new CssMinimizerPlugin(), new TerserPlugin()];
 
   return config;
 }
