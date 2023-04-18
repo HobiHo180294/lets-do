@@ -42,6 +42,8 @@ function bodyUnlock() {
 
 export default class Popup {
   static close(popupActive, doUnlock = true) {
+    console.log('I shouldnt work');
+
     if (unlock) {
       popupActive.classList.remove('open');
       if (doUnlock) bodyUnlock();
