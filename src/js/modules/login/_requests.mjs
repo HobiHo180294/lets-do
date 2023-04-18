@@ -31,3 +31,17 @@ export async function authUser(userData) {
     return error;
   }
 }
+
+export async function getUserInfo(token) {
+  try {
+    const response = await fetch(`${ROOT}/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+}

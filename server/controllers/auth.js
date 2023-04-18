@@ -120,7 +120,7 @@ export async function getMe(req, res) {
     return res.status(serverResponse.status.httpSuccess).json({
       user,
       token,
-      messaage: serverResponse.message.user.isFound,
+      message: serverResponse.message.user.isFound,
     });
   } catch (error) {
     return res.status(serverResponse.status.httpNoAccess).json({
