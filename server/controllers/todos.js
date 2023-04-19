@@ -147,3 +147,24 @@ export async function removeByID(req, res) {
     });
   }
 }
+
+export async function getMyFinished(req, res) {
+  try {
+    const finishedTodos = await Todo.find({
+      author: req.userId,
+      status: 'DONE',
+    });
+
+    return res.status(serverResponse.status.httpSuccess).json({
+      finishedTodos,
+      success: true,
+      message: serverResponse.message.todos.returned,
+    });
+  } catch (error) {
+    return res.status(serverResponse.status.httpNotFound).json({
+      success: false,
+      error: error.message,
+      message: serverResponse.message.todos.getFail,
+    });
+  }
+}

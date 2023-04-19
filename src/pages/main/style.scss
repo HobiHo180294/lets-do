@@ -42,7 +42,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../../assets/images/main/content/background.png') center / cover no-repeat;
+    background: url('../../assets/images/main/content/background.png') center /
+      cover no-repeat;
     z-index: 1;
   }
 
@@ -109,7 +110,12 @@ body {
     text-transform: uppercase;
     color: $heliotrope1;
     cursor: pointer;
+
+    &._none {
+      @extend %_none;
+    }
   }
+
   &__item {
     display: flex;
     gap: 10px;
@@ -124,6 +130,10 @@ body {
     font-size: 18px;
     line-height: 1;
     margin-bottom: 10px;
+
+    &._done {
+      @extend %_done;
+    }
   }
 
   &__pic {

@@ -42,8 +42,6 @@ function bodyUnlock() {
 
 export default class Popup {
   static close(popupActive, doUnlock = true) {
-    console.log('I shouldnt work');
-
     if (unlock) {
       popupActive.classList.remove('open');
       if (doUnlock) bodyUnlock();
@@ -54,7 +52,8 @@ export default class Popup {
     if (event.key === 'Escape') {
       const popupsActive = document.querySelectorAll('.popup.open');
 
-      if (popupsActive.length > 0) this.close(popupsActive[popupsActive.length - 1]);
+      if (popupsActive.length > 0)
+        this.close(popupsActive[popupsActive.length - 1]);
     }
   }
 
@@ -64,7 +63,8 @@ export default class Popup {
 
       currentPopup.classList.add('open');
       currentPopup.addEventListener('click', (e) => {
-        if (!e.target.closest('.popup__content')) this.close(e.target.closest('.popup'));
+        if (!e.target.closest('.popup__content'))
+          this.close(e.target.closest('.popup'));
       });
     }
   }

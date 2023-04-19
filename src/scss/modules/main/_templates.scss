@@ -44,6 +44,11 @@
   overflow: hidden;
 }
 
+%_done {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
 @mixin popup-base-content($width, $padding, $background-color, $border-radius) {
   width: $width;
   padding: $padding;
@@ -55,7 +60,8 @@
   $font-size,
   $line-height,
   $font-weight: 700,
-  $linear-gradient: linear-gradient(266.66deg, $heliotrope 1.54%, $matisse 101.33%)
+  $linear-gradient:
+    linear-gradient(266.66deg, $heliotrope 1.54%, $matisse 101.33%)
 ) {
   font-weight: $font-weight;
   font-size: $font-size;

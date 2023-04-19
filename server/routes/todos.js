@@ -7,6 +7,7 @@ import {
   getAndUpdateStatusByID,
   getMyTodos,
   removeByID,
+  getMyFinished,
 } from '../controllers/todos.js';
 
 const router = new Router();
@@ -18,12 +19,15 @@ router.post('/', checkAuth, createTodo);
 router.get('/', getAll);
 
 // * GET AND UPDATE TODO STATUS BY ID
-router.get('/:id', getAndUpdateStatusByID);
+router.get('/:id', checkAuth, getAndUpdateStatusByID);
 
 // * GET MY TODOS
 router.get('/user/me', checkAuth, getMyTodos);
 
 // * REMOVE TODO
-router.delete('/:id', removeByID);
+router.delete('/:id', checkAuth, removeByID);
+
+// * GET MY FINISHED TODOS WITH STATUS DONE
+router.get('/user/me/finished', checkAuth, getMyFinished);
 
 export default router;

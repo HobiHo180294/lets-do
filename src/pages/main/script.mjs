@@ -3,11 +3,162 @@ import './style.scss';
 import Popup from '../../js/modules/main/Popup.mjs';
 import deleteIcon from '../../assets/images/main/icons/delete.svg';
 import doneIcon from '../../assets/images/main/icons/done.svg';
+import findUser from '../../js/modules/_global-utils.mjs';
+import {
+  getMyTodos,
+  createTodo,
+  performTodo,
+  removeTodo,
+  getCompleted,
+} from '../../js/modules/main/_requests.mjs';
+import { requestEndpoints } from '../../js/modules/login/services/endpoints.mjs';
 
+async function renderUserProfile(userData) {
+  const profileItems = document.querySelectorAll('.profile-list__item_value');
+  const profilePopupGreetingsElem = document.querySelector(
+    '.profile-popup__greetings'
+  );
+
+  profilePopupGreetingsElem.textContent = `Hello, ${userData.user.username}!`;
+
+  profileItems.forEach(async (item) => {
+    const itemCopy = item;
+
+    if (item.closest('.profile-list__username')) {
+      itemCopy.textContent = userData.user.username;
+    }
+
+    if (item.closest('.profile-list__mail')) {
+      itemCopy.textContent = userData.user.email;
+    }
+
+    if (item.closest('.profile-list__completed')) {
+      const { finishedTodos } = await getCompleted(userData.token);
+      itemCopy.textContent = finishedTodos.length;
+    }
+  });
+}
+
+// * GET USER DATA
+const userData = await findUser();
+if (userData) await renderUserProfile(userData);
+console.log('user:', userData);
+// * GET USER DATA
+
+// * FUNCTIONS
+function insertElement(place, element) {
+  place.appendChild(element);
+}
+
+function createElement(tag, classes, newTitle) {
+  const newElement = document.createElement(tag);
+  newElement.className = classes;
+
+  if (newTitle) newElement.setAttribute('title', newTitle);
+  return newElement;
+}
+
+function createNewTask(
+  taskText,
+  taskID,
+  todoListElem = document.querySelector('.todo-popup__list')
+) {
+  const newTask = createElement('li', 'todo-popup__item');
+  newTask.id = taskID;
+
+  const picTaskDone = createElement(
+    'img',
+    'todo-popup__pic todo-popup__pic-done',
+    'Mark as done'
+  );
+
+  const picTaskDelete = createElement(
+    'img',
+    'todo-popup__pic todo-popup__pic-delete',
+    'Delete'
+  );
+
+  picTaskDone.src = doneIcon;
+  picTaskDelete.src = deleteIcon;
+
+  newTask.textContent = taskText;
+
+  insertElement(todoListElem, newTask);
+  insertElement(newTask, picTaskDone);
+  insertElement(newTask, picTaskDelete);
+
+  return { newTask, picTaskDone, picTaskDelete };
+}
+
+function renderNewTask(
+  todoTask,
+  todoID,
+  todoStatus = 'OPEN',
+  addTaskElement = document.querySelector('.todo-popup__item-first')
+) {
+  addTaskElement.classList.add('_none');
+
+  const { newTask, picTaskDone, picTaskDelete } = createNewTask(
+    todoTask,
+    todoID
+  );
+
+  if (todoStatus === 'DONE') newTask.classList.add('_done');
+
+  picTaskDone.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    await performTodo(newTask.id, userData.token);
+    newTask.classList.add('_done');
+  });
+
+  picTaskDelete.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    await removeTodo(newTask.id, userData.token);
+    newTask.remove();
+
+    if (!document.querySelector('.todo-popup__item')) {
+      addTaskElement.classList.remove('_none');
+    }
+  });
+}
+
+function userLogout() {
+  window.sessionStorage.removeItem('token');
+  window.location.href = requestEndpoints.login;
+}
+
+// * ELEMENTS
 const popupLinks = document.querySelectorAll('.popup-link');
 const popupCloseIcon = document.querySelectorAll('.popup__close');
 const todoPopupLink = document.querySelector('.todo-popup__link');
 
+// const todoListElement = document.querySelector('.todo-popup__list');
+const addTaskElement = document.querySelector('.todo-popup__item-first');
+
+const targetForm = document.querySelector('.task-popup__body');
+const okButton = document.querySelector('.task-popup__buttons_ok');
+const noButton = document.querySelector('.task-popup__buttons_no');
+
+const logoutElement = document.querySelector('.logout');
+
+// * TEST TOKEN
+
+if (userData.user.todos.length > 0) {
+  const { list } = await getMyTodos(userData.token);
+
+  addTaskElement.classList.add('_none');
+
+  list.forEach((todo) => {
+    console.log(todo);
+
+    if (todo) {
+      // eslint-disable-next-line no-underscore-dangle
+      renderNewTask(todo.task, todo._id, todo.status);
+    }
+  });
+}
+
+// * POPUP
 document.addEventListener('keydown', (e) => {
   Popup.closeOnEscape(e);
 });
@@ -39,78 +190,31 @@ if (popupCloseIcon.length > 0)
     });
   }
 
-// *PAGINATION
+// * PAGINATION (SIA IMPLEMENTATION)
 
-function createElement(tag, classes, newTitle) {
-  const newElement = document.createElement(tag);
-  newElement.className = classes;
-  newElement.setAttribute('title', newTitle);
-  return newElement;
-}
+okButton.addEventListener('click', async (event) => {
+  event.preventDefault();
+  const formData = new FormData(targetForm);
 
-function insertElement(place, element) {
-  place.appendChild(element);
-}
+  const taskText = formData.get('task-text');
 
-const okButton = document.querySelector('.task-popup__buttons_ok');
-const todoList = document.querySelector('.todo-popup__list');
+  if (taskText) {
+    const { newTodo } = await createTodo(taskText, userData.token);
+    // eslint-disable-next-line no-underscore-dangle
+    renderNewTask(taskText, newTodo._id, newTodo.status);
+  }
 
-const addTaskElement = document.querySelector('.todo-popup__item-first');
-
-okButton.addEventListener('click', () => {
-  const taskText = document.querySelector('.task-popup__field'); // textarea
-  addTaskElement.style.display = 'none';
-
-  const newTask = createElement('li', 'todo-popup__item');
-
-  // eslint-disable-next-line prettier/prettier
-  const picTaskDone = createElement(
-    'img',
-    'todo-popup__pic todo-popup__pic-done',
-    'Mark as done'
-  );
-  // eslint-disable-next-line prettier/prettier
-  const picTaskDelete = createElement(
-    'img',
-    'todo-popup__pic todo-popup__pic-delete',
-    'Delete'
-  );
-
-  picTaskDone.src = doneIcon;
-  picTaskDelete.src = deleteIcon;
-
-  newTask.innerText = taskText.value;
-
-  insertElement(todoList, newTask);
-  insertElement(newTask, picTaskDone);
-  insertElement(newTask, picTaskDelete);
-
-  picTaskDone.addEventListener('click', (e) => {
-    e.stopPropagation();
-    newTask.style.opacity = 0.5;
-    newTask.style.textDecoration = 'line-through';
-  });
-
-  picTaskDelete.addEventListener('click', (e) => {
-    e.stopPropagation();
-    newTask.remove();
-
-    if (!document.querySelector('.todo-popup__item')) {
-      addTaskElement.style.display = 'block';
-    }
-  });
-
-  taskText.value = '';
+  setTimeout(() => {
+    targetForm.reset();
+  }, 1000);
 });
 
-// * TEST TOKEN
-// import { getUserInfo } from '../../js/modules/login/_requests.mjs';
+noButton.addEventListener('click', (e) => {
+  e.preventDefault();
 
-// async function findUser() {
-//   const token = window.sessionStorage.getItem('token');
-//   return token ? getUserInfo(token) : null;
-// }
+  setTimeout(() => {
+    targetForm.reset();
+  }, 1000);
+});
 
-// const userData = await findUser();
-// console.log('user:', userData);
-// * TEST TOKEN
+logoutElement.addEventListener('click', userLogout);
