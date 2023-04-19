@@ -1,6 +1,6 @@
 const ROOT = 'http://localhost:3000/api/todos/';
 
-export async function getMyTodos(token, limit = 7, page = 1) {
+export async function getMyTodos(token, page = 1, limit = 7) {
   try {
     const response = await fetch(
       `${ROOT}/user/me?limit=${limit}&page=${page}`,
@@ -11,7 +11,7 @@ export async function getMyTodos(token, limit = 7, page = 1) {
       }
     );
     const data = await response.json();
-    return data;
+    return { list: data.list, limit };
   } catch (error) {
     return error;
   }

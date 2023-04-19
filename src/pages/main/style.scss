@@ -96,7 +96,7 @@ body {
   }
 
   &__list {
-    @include null-ul(318px);
+    @include null-ul(40px);
     display: inline-block;
     margin-right: auto;
     text-align: left;
@@ -140,12 +140,6 @@ body {
     cursor: pointer;
   }
 
-  &__pic-done {
-  }
-
-  &__pic-delete {
-  }
-
   &__link-before {
     font-family: 'Inder', sans-serif;
     font-weight: 400;
@@ -170,6 +164,11 @@ body {
     line-height: 22px;
     text-transform: uppercase;
     color: $alice-blue;
+  }
+
+  &__pagination {
+    margin: 0 auto 20px;
+    text-align: center;
   }
 }
 
@@ -385,6 +384,32 @@ body {
 
     &_no {
       background-color: $anakiwa;
+    }
+  }
+}
+
+.pagination {
+  > * {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &__btn {
+    cursor: pointer;
+    padding: 10px 20px;
+    background: $heliotrope2;
+    border-radius: 10px;
+    border: none;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: $alice-blue;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
     }
   }
 }

@@ -29,7 +29,8 @@ async function renderUserProfile(userData) {
     }
 
     if (item.closest('.profile-list__mail')) {
-      itemCopy.textContent = userData.user.email;
+      itemCopy.firstElementChild.textContent = userData.user.email;
+      itemCopy.firstElementChild.href = `mailto:${userData.user.email}`;
     }
 
     if (item.closest('.profile-list__completed')) {
@@ -42,7 +43,6 @@ async function renderUserProfile(userData) {
 // * GET USER DATA
 const userData = await findUser();
 if (userData) await renderUserProfile(userData);
-console.log('user:', userData);
 // * GET USER DATA
 
 // * FUNCTIONS
@@ -108,6 +108,11 @@ function renderNewTask(
   picTaskDone.addEventListener('click', async (e) => {
     e.stopPropagation();
     await performTodo(newTask.id, userData.token);
+    const { finishedTodos } = await getCompleted(userData.token);
+    document
+      .querySelector('.profile-list__completed')
+      .querySelector('.profile-list__item_value').textContent =
+      finishedTodos.length;
     newTask.classList.add('_done');
   });
 
@@ -132,7 +137,6 @@ const popupLinks = document.querySelectorAll('.popup-link');
 const popupCloseIcon = document.querySelectorAll('.popup__close');
 const todoPopupLink = document.querySelector('.todo-popup__link');
 
-// const todoListElement = document.querySelector('.todo-popup__list');
 const addTaskElement = document.querySelector('.todo-popup__item-first');
 
 const targetForm = document.querySelector('.task-popup__body');
@@ -149,8 +153,6 @@ if (userData.user.todos.length > 0) {
   addTaskElement.classList.add('_none');
 
   list.forEach((todo) => {
-    console.log(todo);
-
     if (todo) {
       // eslint-disable-next-line no-underscore-dangle
       renderNewTask(todo.task, todo._id, todo.status);
