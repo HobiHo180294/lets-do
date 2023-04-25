@@ -1,14 +1,3 @@
-<style>
-
-img[alt$="<"] {
-  float: left;
-  margin-right: 10px;
-  width: 240px;
-  height: 280px
-}
-
-</style>
-
 # LET'S DO
 
 ## About
