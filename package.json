@@ -39,6 +39,11 @@
   ],
   "author": "Yehor Potebenko <hitechnic.uu68@gmail.com>",
   "license": "ISC",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
   "bugs": {
     "url": "https://github.com/HobiHo180294/lets-do/issues"
   },
