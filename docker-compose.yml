@@ -1,0 +1,42 @@
+version: '1.0.0'
+
+services:
+  frontend:
+    build:
+      dockerfile: src/Dockerfile
+    env_file:
+      - .env
+    container_name: frontend-side
+    ports:
+      - '${FRONTEND_PORT}:${FRONTEND_PORT}'
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+    networks:
+      - letsDo-network
+
+  backend:
+    build:
+      context: ./server
+    env_file:
+      - ./server/.env
+    container_name: node-server
+    ports:
+      - '${BACKEND_PORT}:${BACKEND_PORT}'
+    restart: always
+    depends_on:
+      - database
+    environment:
+      - DB_USER
+      - DB_PASSWORD
+    networks:
+      - letsDo-network
+
+  database:
+    image: mongo
+    container_name: mongo-db
+
+networks:
+  letsDo-network:
+    driver: bridge

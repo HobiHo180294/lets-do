@@ -10,7 +10,7 @@ const app = express();
 dotenv.config();
 
 // * Constants
-const { PORT } = process.env || 3000;
+const { BACKEND_PORT } = process.env || 3000;
 const { DB_USER, DB_PASSWORD, DB_NAME } = process.env;
 
 // * Middleware
@@ -27,8 +27,8 @@ async function start() {
       `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.ooena3i.mongodb.net/${DB_NAME}`
     );
 
-    app.listen(PORT, () => {
-      console.log(`Server started on port: ${PORT}`);
+    app.listen(BACKEND_PORT, () => {
+      console.log(`Server started on port: ${BACKEND_PORT}`);
     });
 
     return null;

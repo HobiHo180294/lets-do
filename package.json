@@ -83,5 +83,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "normalize.css": "^8.0.1"
-  }
+  },
+  "proxy": "http://node-api:3000"
 }
