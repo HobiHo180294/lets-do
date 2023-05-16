@@ -1,4 +1,4 @@
-version: '1.0.0'
+version: '3'
 
 services:
   frontend:
@@ -23,9 +23,9 @@ services:
       dockerfile: Dockerfile
     env_file:
       - .env
-    container_name: node-server
-    ports:
-      - '${BACKEND_PORT}:${BACKEND_PORT}'
+    # container_name: node-server
+    # ports:
+    #   - '${BACKEND_PORT}:${BACKEND_PORT}'
     restart: always
     depends_on:
       - database
@@ -38,6 +38,17 @@ services:
   database:
     image: mongo
     container_name: mongo-db
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+    depends_on:
+      - backend
+    ports:
+      - ${BACKEND_PORT}:${BACKEND_PORT}
+    networks:
+      - letsDo-network
 
 networks:
   letsDo-network:
