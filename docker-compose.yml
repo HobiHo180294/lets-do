@@ -17,25 +17,11 @@ services:
     networks:
       - letsDo-network
 
-  backend1:
+  backend:
     build:
       context: server
       dockerfile: Dockerfile
-    env_file:
-      - .env
-    restart: always
-    depends_on:
-      - database
-    environment:
-      - DB_USER
-      - DB_PASSWORD
-    networks:
-      - letsDo-network
-
-  backend2:
-    build:
-      context: server
-      dockerfile: Dockerfile
+    tty: true
     env_file:
       - .env
     restart: always
@@ -49,17 +35,20 @@ services:
 
   database:
     image: mongo
+    tty: true
     container_name: mongo-db
 
   loadbalancer:
     build:
       context: loadbalancer
       dockerfile: Dockerfile
+    tty: true
     links:
-      - backend1
-      - backend2
+      - backend
     ports:
-      - ${BACKEND_PORT}:${BACKEND_PORT}
+      - '${BACKEND_3000}:${BACKEND_3000}'
+      - '${BACKEND_3001}:${BACKEND_3001}'
+      - '${BACKEND_3002}:${BACKEND_3002}'
     networks:
       - letsDo-network
 

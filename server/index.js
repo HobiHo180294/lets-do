@@ -3,6 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import os from 'os';
 import authRoute from './routes/auth.js';
 import todoRoute from './routes/todos.js';
 
@@ -21,6 +22,10 @@ app.use(express.json());
 app.use('/api/auth', authRoute);
 app.use('/api/todos', todoRoute);
 
+app.use('/', async (req, res) => {
+  res.json({ message: 'Everything works fine!', hostname: req.hostname });
+});
+
 async function start() {
   try {
     await mongoose.connect(
@@ -28,7 +33,7 @@ async function start() {
     );
 
     app.listen(BACKEND_PORT, () => {
-      console.log(`Server started on port: ${BACKEND_PORT}`);
+      console.log(`Running container: ${os.hostname()}`);
     });
 
     return null;
