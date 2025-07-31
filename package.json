@@ -10,7 +10,7 @@
     "prod": "webpack --node-env=production",
     "watch": "webpack --node-env=development --watch",
     "clear": "rd /s /q dist",
-    "lint": "eslint ./src/**/*.{mjs,js} --fix && prettier --write ./src/**/*.{mjs,js}"
+    "lint": "eslint ./{src,server}/**/*.{mjs,js} --fix && prettier --write ./{src,server}/**/*.{mjs,js}"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,11 @@
   ],
   "author": "Yehor Potebenko <hitechnic.uu68@gmail.com>",
   "license": "ISC",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
   "bugs": {
     "url": "https://github.com/HobiHo180294/lets-do/issues"
   },
@@ -78,5 +83,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "normalize.css": "^8.0.1"
-  }
+  },
+  "proxy": "http://node-api:3000"
 }

@@ -2,20 +2,113 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../assets/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../assets/images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../../assets/images/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="../../assets/images/favicon/safari-pinned-tab.svg"
+      color="#9f00a7"
+    />
+    <meta name="msapplication-TileColor" content="#9f00a7" />
+    <meta name="theme-color" content="#ffffff" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Let's do</title>
+    <title>Let's Do</title>
   </head>
   <body>
     <div class="wrapper">
-      <!-- * HEADER -->
-      <header>login</header>
+      <div class="login">
+        <div class="login__container">
+          <div class="login__row">
+            <!-- Logo column start -->
+            <div class="login__logo-col">
+              <div class="logo-col__title">
+                <h1>
+                  Let's
+                  <mark class="logo-col__title-sp">Do</mark>
+                </h1>
+              </div>
+              <div class="logo-col__logo">
+                <img
+                  class="logo-col__pic"
+                  src="../../assets/images/login/owl.png"
+                  alt="Logo"
+                />
+                <div class="logo-col__anim"></div>
+              </div>
+            </div>
+            <!-- Logo column end -->
+            <!-- Form column start -->
+            <div class="login__form-col">
+              <form action="/main.html" class="login__form" novalidate>
+                <div class="form__title">Login</div>
+                <div class="form__subtitle">Welcome back.</div>
 
-      <!-- * MAIN -->
-      <main class="main"></main>
+                <div class="form__items">
+                  <div class="form__item">
+                    <label for="#" class="form__label"> Username: </label>
+                    <input
+                      type="text"
+                      name="username"
+                      class="form__input username-input"
+                      minlength="4"
+                      maxlength="10"
+                      required
+                    />
+                    <div class="validation-error _username-error"></div>
+                  </div>
 
-      <!-- * FOOTER -->
-      <footer>login</footer>
+                  <div class="form__item">
+                    <label for="#" class="form__label"> Password: </label>
+                    <input
+                      type="password"
+                      name="password"
+                      class="form__input password-input"
+                      minlength="4"
+                      maxlength="8"
+                      required
+                    />
+                    <div class="validation-error _password-error"></div>
+                  </div>
+                </div>
+
+                <button type="submit" class="form__btn">Login</button>
+
+                <div class="validation-error _empty-error"></div>
+
+                <div class="login__account">
+                  Don’t have an account?
+                  <a href="/registration" class="login__account-join"> Join </a>
+                </div>
+              </form>
+            </div>
+            <!-- Form column end -->
+          </div>
+          <audio autoplay loop>
+            <source
+              src="../../assets/music/Heart-Of-The-Ocean.mp3"
+              type="audio/mp3"
+            />
+          </audio>
+        </div>
+      </div>
     </div>
   </body>
 </html>

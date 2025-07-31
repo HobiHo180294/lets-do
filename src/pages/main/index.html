@@ -1,7 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../assets/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../assets/images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../../assets/images/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="../../assets/images/favicon/safari-pinned-tab.svg"
+      color="#9f00a7"
+    />
+    <meta name="msapplication-TileColor" content="#9f00a7" />
+    <meta name="theme-color" content="#ffffff" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Let's do</title>
@@ -9,13 +34,211 @@
   <body>
     <div class="wrapper">
       <!-- * HEADER -->
-      <header>main</header>
+      <header class="header lock-padding">
+        <div class="header__container _container">
+          <nav class="header__body">
+            <ul class="header__menu menu">
+              <li class="menu__item">
+                <a href="#todo-popup" class="menu__link popup-link">
+                  <img
+                    class="menu__item_img"
+                    src="../../assets/images/main/icons/tasks.svg"
+                    alt="Tasks"
+                  />
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#profile-popup" class="menu__link popup-link">
+                  <img
+                    class="menu__item_img"
+                    src="../../assets/images/main/icons/profile.svg"
+                    alt="Profile"
+                  />
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
 
       <!-- * MAIN -->
-      <main class="main"></main>
+      <main class="main">
+        <div class="main__container _container">
+          <div class="main__body">
+            <img
+              class="main__character"
+              src="../../assets/images/main/content/owl-main.png"
+              alt="Owl"
+              width="367"
+              height="358"
+            />
+          </div>
+        </div>
+      </main>
 
-      <!-- * FOOTER -->
-      <footer>main</footer>
+      <!-- * TODO POPUP -->
+      <section id="todo-popup" class="todo-popup popup">
+        <div class="todo-popup__body popup__body">
+          <div class="todo-popup__content popup__content">
+            <a href="#header" class="todo-popup__close popup__close">
+              <img
+                src="../../assets/images/main/icons/close.svg"
+                alt="Close Modal"
+                width="20"
+                height="20"
+                class="todo-popup__close_icon popup__close_icon"
+              />
+            </a>
+            <div class="todo-popup__wrapper">
+              <h2 class="todo-popup__title">
+                Let’s
+                <i>Do</i>
+              </h2>
+              <p class="todo-popup__question">What’s your plan?</p>
+
+              <ul class="todo-popup__list">
+                <li class="todo-popup__item-first">
+                  <span class="todo-popup__link-before">+</span>
+                  <a class="todo-popup__link popup-link" href="#task-popup">
+                    Add task
+                  </a>
+                </li>
+              </ul>
+
+              <a href="#task-popup" class="todo-popup__button popup-link">
+                Add task
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- * TASK POPUP -->
+      <section id="task-popup" class="task-popup popup">
+        <form action="#header" class="task-popup__body popup__body">
+          <fieldset class="task-popup__content popup__content">
+            <h2 class="task-popup__title">My task</h2>
+            <textarea
+              class="task-popup__field"
+              name="task-text"
+              placeholder="What is your main focus for today?"
+            ></textarea>
+            <div class="task-popup__buttons">
+              <button type="submit" class="task-popup__buttons_ok popup__close">
+                OK
+              </button>
+              <button type="reset" class="task-popup__buttons_no popup__close">
+                NO
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+      <!-- * PROFILE POPUP -->
+      <section id="profile-popup" class="profile-popup popup">
+        <div class="profile-popup__body popup__body">
+          <div class="profile-popup__content popup__content">
+            <a href="#header" class="profile-popup__close popup__close">
+              <img
+                src="../../assets/images/main/icons/close.svg"
+                alt="Close Modal"
+                width="20"
+                height="20"
+                class="profile-popup__close_icon popup__close_icon"
+              />
+            </a>
+            <div class="profile-popup__wrapper">
+              <div class="profile-popup__top">
+                <img
+                  class="profile-popup__avatar"
+                  src="../../assets/images/main/icons/owl-avatar.svg"
+                  alt="Avatar"
+                  width="64"
+                  height="64"
+                />
+                <h3 class="profile-popup__greetings">Hello, Yehor!</h3>
+              </div>
+              <ul class="profile-popup__list profile-list">
+                <li class="profile-list__item profile-list__username">
+                  <mark class="profile-list__item_title">Name:</mark>
+                  <span class="profile-list__item_value">Yehor</span>
+                </li>
+                <li class="profile-list__item profile-list__mail">
+                  <mark class="profile-list__item_title">Email:</mark>
+                  <span class="profile-list__item_value">
+                    <a
+                      href="mailto:bulka@cute.one"
+                      class="profile-list__mail_link"
+                    >
+                      bulka@cute.one
+                    </a>
+                  </span>
+                </li>
+                <li class="profile-list__item profile-list__completed">
+                  <mark class="profile-list__item_title">Completed tasks:</mark>
+                  <span class="profile-list__item_value">15</span>
+                </li>
+              </ul>
+              <div class="profile-popup__bottom">
+                <a
+                  href="#header"
+                  class="profile-popup__bottom_logout logout popup__close"
+                >
+                  <img
+                    class="logout__image"
+                    src="../../assets/images/main/icons/logout.svg"
+                    alt="Logout"
+                    width="24"
+                    height="30"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- * STOP ACTIVITY POPUP -->
+      <section id="stop-popup" class="stop-popup popup">
+        <div class="stop-popup__body popup__body">
+          <div class="stop-popup__content popup__content">
+            <div class="stop-popup__wrapper">
+              <h2 class="stop-popup__title">
+                Let’s
+                <i>Do</i>
+              </h2>
+              <p class="stop-popup__question">
+                Are you sure you want to stop activity?
+              </p>
+
+              <div class="stop-popup__buttons">
+                <a
+                  href="#header"
+                  type="submit"
+                  class="stop-popup__buttons_ok popup__close"
+                >
+                  OK
+                </a>
+                <a
+                  href="#header"
+                  type="reset"
+                  class="stop-popup__buttons_no popup__close"
+                >
+                  NO
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <audio autoplay loop>
+        <source
+          src="../../assets/music/Heart-Of-The-Ocean.mp3"
+          type="audio/mp3"
+        />
+      </audio>
     </div>
   </body>
 </html>

@@ -1,0 +1,57 @@
+version: '3.2'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    env_file:
+      - .env
+    container_name: frontend-side
+    ports:
+      - '${FRONTEND_PORT}:${FRONTEND_PORT}'
+    stdin_open: true
+    tty: true
+    depends_on:
+      - loadbalancer
+    networks:
+      - letsDo-network
+
+  backend:
+    build:
+      context: server
+      dockerfile: Dockerfile
+    tty: true
+    env_file:
+      - .env
+    restart: always
+    depends_on:
+      - database
+    environment:
+      - DB_USER
+      - DB_PASSWORD
+    networks:
+      - letsDo-network
+
+  database:
+    image: mongo
+    tty: true
+    container_name: mongo-db
+
+  loadbalancer:
+    build:
+      context: loadbalancer
+      dockerfile: Dockerfile
+    tty: true
+    links:
+      - backend
+    ports:
+      - '${BACKEND_3000}:${BACKEND_3000}'
+      - '${BACKEND_3001}:${BACKEND_3001}'
+      - '${BACKEND_3002}:${BACKEND_3002}'
+    networks:
+      - letsDo-network
+
+networks:
+  letsDo-network:
+    driver: bridge

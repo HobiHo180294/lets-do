@@ -1,0 +1,53 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Let's Do is a fun and intuitive ToDo application featuring our friendly owl mascot. Stay organized and on top of your tasks with ease. With Let's Do, you can easily manage your to-do list and track your progress. Get productive and have fun doing it with Let's Do!",
+  "main": "index.js",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HobiHo180294/lets-do.git"
+  },
+  "keywords": [
+    "todo",
+    "task-management",
+    "productivity",
+    "organizer",
+    "reminder",
+    "checklist",
+    "planner",
+    "schedule",
+    "goal-tracking",
+    "time-management",
+    "efficiency",
+    "prioritization",
+    "collaboration",
+    "teamwork",
+    "mobile-app",
+    "web-app",
+    "desktop-app",
+    "owl-mascot",
+    "lets-do"
+  ],
+  "author": "Yehor Potebenko <hitechnic.uu68@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HobiHo180294/lets-do/issues"
+  },
+  "homepage": "https://github.com/HobiHo180294/lets-do#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
