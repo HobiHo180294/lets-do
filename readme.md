@@ -2,15 +2,11 @@
 
 ## About
 
----
-
 Let's Do is a fun and intuitive ToDo application featuring our friendly owl mascot. Stay organized and on top of your tasks with ease. With Let's Do, you can easily manage your to-do list and track your progress. Get productive and have fun doing it with Let's Do!
 
 <br />
 
 ## Project photos
-
----
 
 ### **_REGISTRATION PAGE_**
 
@@ -36,8 +32,6 @@ Let's Do is a fun and intuitive ToDo application featuring our friendly owl masc
 
 ## Functionality description
 
----
-
 1. It's possible to login users.
 2. It's possible to register created before users.
 3. Validation works well both on front-end and back-end sides.
@@ -50,8 +44,6 @@ Let's Do is a fun and intuitive ToDo application featuring our friendly owl masc
 <br />
 
 ## Pages description
-
----
 
 - **REGISTRATION**: page, where you can register new user.
   ```console
@@ -90,8 +82,6 @@ Let's Do is a fun and intuitive ToDo application featuring our friendly owl masc
 <br />
 
 ## Project Launch Rules
-
----
 
 1. Clone project on the local machine:
 
@@ -137,8 +127,6 @@ Let's Do is a fun and intuitive ToDo application featuring our friendly owl masc
 
 ## Branches description
 
----
-
 - **MAIN**: the main project branch in which the final project version will be located.
 - **GH-PAGES**: the project branch in which the build version is located.
 - **FIRST-VERSION**: the project branch with ready MVP (while the latest project version).
@@ -162,9 +150,17 @@ Let's Do is a fun and intuitive ToDo application featuring our friendly owl masc
 
 <br />
 
-## Authors:
+## Demo
 
----
+You can explore how the application works by visiting the live demo:
+
+🔗 [https://youtu.be/Adruxp3roN8](https://youtu.be/Adruxp3roN8)
+
+It showcases the full flow of the application — from user registration and login to managing and completing tasks in an intuitive interface.
+
+⚠️ _**Please note:** This is an MVP version intended for demonstration purposes only — some features may be limited or under active development._
+
+## Authors:
 
 - Yehor Potebenko <Yehor.Potebenko@Student.Reutlingen-University.DE>
 - Anastasiia But <Anastasiia.But@Student.Reutlingen-University.DE>
