@@ -158,7 +158,7 @@ You can explore how the application works by visiting the live demo:
 
 It showcases the full flow of the application — from user registration and login to managing and completing tasks in an intuitive interface.
 
-⚠️ _**Please note:** This is an MVP version intended for demonstration purposes only — some features may be limited or under active development._
+⚠️ _**Please note:** This is an MVP version intended for demonstration purposes only. Active development on this project is no longer maintained._
 
 ## Authors:
 
